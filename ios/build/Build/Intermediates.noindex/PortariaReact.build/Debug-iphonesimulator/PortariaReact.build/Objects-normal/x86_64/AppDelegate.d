@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/primitecnologia/Desktop/Portaria/ios/PortariaReact/AppDelegate.m \
+  /Users/primitecnologia/Desktop/Portaria/ios/PortariaReact/AppDelegate.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Firebase/CoreOnly/Sources/Firebase.h

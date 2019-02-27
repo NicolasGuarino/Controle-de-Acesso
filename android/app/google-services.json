@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "46880934400",
+    "firebase_url": "https://portaria-49674.firebaseio.com",
+    "project_id": "portaria-49674",
+    "storage_bucket": "portaria-49674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46880934400:android:8e22bb99dc535d18",
+        "android_client_info": {
+          "package_name": "br.com.portaria.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46880934400-26nq9qrk9o3kugrfs14gdtulv3fge5ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAewidNfDLQem0y7-TFF9FrfiiObezHZpw"
+        },
+        {
+          "current_key": "AIzaSyBcKTn_N73X8Rl6rs2GT5AG7RnkjWRg6U4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46880934400:android:ff0016963f10c52b",
+        "android_client_info": {
+          "package_name": "com.portariareact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46880934400-26nq9qrk9o3kugrfs14gdtulv3fge5ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAewidNfDLQem0y7-TFF9FrfiiObezHZpw"
+        },
+        {
+          "current_key": "AIzaSyBcKTn_N73X8Rl6rs2GT5AG7RnkjWRg6U4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

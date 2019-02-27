@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>885CB94E-C6E9-4A7F-BD1C-E27C4905FBF4</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>885CB94E-C6E9-4A7F-BD1C-E27C4905FBF4.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>PortariaReact project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>PortariaReact</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>571142333.40349805</real>
+			<key>timeStoppedRecording</key>
+			<real>571142341.89286995</real>
+			<key>title</key>
+			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>885CB94E-C6E9-4A7F-BD1C-E27C4905FBF4</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

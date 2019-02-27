@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingRmqManager.m \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingRmqManager.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingDefines.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingLogger.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMMessageCode.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingRmq2PersistentStore.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/FIRMessagingUtilities.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/FirebaseMessaging/Firebase/Messaging/Protos/GtalkCore.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBProtocolBuffers.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBBootstrap.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBArray.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBRuntimeTypes.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBCodedInputStream.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBCodedOutputStream.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBWireFormat.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBDescriptor.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBDictionary.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBExtensionRegistry.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBMessage.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBRootObject.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBUnknownField.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBUnknownFieldSet.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBUtilities.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/GPBWellKnownTypes.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Any.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Duration.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Timestamp.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Api.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Empty.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/FieldMask.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/SourceContext.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Struct.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Type.pbobjc.h \
+  /Users/primitecnologia/Desktop/Portaria/ios/Pods/Headers/Private/Protobuf/Wrappers.pbobjc.h
