@@ -1,23 +1,27 @@
 import React, {Component} from 'react'; 
 import {
-    StyleSheet,
     Text,
     View,
     TextInput,
-    Button,
     TouchableHighlight,
     Image,
-    Alert,
     Animated,
     TouchableWithoutFeedback,
     ScrollView
 } from 'react-native';
+
 import Opcao from '../fragments/opcao';
+
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import Dialog from 'react-native-dialog';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+
+
+import { styles } from '../styles/stylesCadastrarVisitante';
 
 import Api from '../services/api';
 import { TextInputMask } from 'react-native-masked-text'
+import api from '../services/api';
 
 
 
@@ -31,13 +35,11 @@ export default class CadastrarVisitante extends Component {
             nome_completo: '',
             rg   : '',
             placa_veiculo: '',
-            visibleHorarioEntrada: false,
-            visibleHorarioSaida: false,
-            dialogVisible: false,
             txtHoraEntrada: 'Nenhum',
             txtHoraSaida: 'Nenhum',
+            txtDataExcecao: '',
             itemClicado: '',
-            dialogConfirmReset: false,
+
             dias: [
                 { 'id': '0', 'dia': 'Domingo', 'horaEntrada': 'Nenhum', 'horaSaida': 'Nenhum' },                
                 { 'id': '1', 'dia': 'Segunda-feira', 'horaEntrada': 'Nenhum', 'horaSaida': 'Nenhum' },
@@ -47,52 +49,44 @@ export default class CadastrarVisitante extends Component {
                 { 'id': '5', 'dia': 'Sexta-feira', 'horaEntrada': 'Nenhum', 'horaSaida': 'Nenhum' },
                 { 'id': '6', 'dia': 'Sábado', 'horaEntrada': 'Nenhum', 'horaSaida': 'Nenhum' },
             ],
-            isExcecao: true,
-
-            excecoes: [
-                // { 'id': '1' , 'data': '28/02/2018', 'horaEntrada': '07:00', 'horaSaida': '17:00'},
-            ],
-            
+            excecoes: [],
             mesesDoAno: [
-                {'mesNumerico': '01', 'mes': 'Jan'},
-                {'mesNumerico': '02', 'mes': 'Feb'},
-                {'mesNumerico': '03', 'mes': 'Mar'},
-                {'mesNumerico': '04', 'mes': 'Apr'},
-                {'mesNumerico': '05', 'mes': 'May'},
-                {'mesNumerico': '06', 'mes': 'Jun'},
-                {'mesNumerico': '07', 'mes': 'Jul'},
-                {'mesNumerico': '08', 'mes': 'Aug'},
-                {'mesNumerico': '09', 'mes': 'Sep'},
-                {'mesNumerico': '10', 'mes': 'Oct'},
-                {'mesNumerico': '11', 'mes': 'Nov'},
-                {'mesNumerico': '12', 'mes': 'Dec'},
+                {'id': '1', 'mesNumerico': '01', 'mes': 'Jan'},
+                {'id': '2', 'mesNumerico': '02', 'mes': 'Feb'},
+                {'id': '3', 'mesNumerico': '03', 'mes': 'Mar'},
+                {'id': '4', 'mesNumerico': '04', 'mes': 'Apr'},
+                {'id': '5', 'mesNumerico': '05', 'mes': 'May'},
+                {'id': '6', 'mesNumerico': '06', 'mes': 'Jun'},
+                {'id': '7', 'mesNumerico': '07', 'mes': 'Jul'},
+                {'id': '8', 'mesNumerico': '08', 'mes': 'Aug'},
+                {'id': '9', 'mesNumerico': '09', 'mes': 'Sep'},
+                {'id': '10', 'mesNumerico': '10', 'mes': 'Oct'},
+                {'id': '11', 'mesNumerico': '11', 'mes': 'Nov'},
+                {'id': '12', 'mesNumerico': '12', 'mes': 'Dec'},
                 
             ],
 
+            isExcecao: true,
+            visibleHorarioEntrada: false,
+            visibleHorarioSaida: false,
+            dialogVisible: false,
+            dialogConfirmReset: false,
             dialogAdicionarExcecao: false,
             dialogHorarioEntradaExcecao: false,
             dialogHorarioSaidaExcecao: false,
-            dialogConfirmaExcecao: false
+            dialogConfirmaExcecao: false,
+
 
         }
     }
 
-    componentDidMount(){
-        
-    }
-
     showSelecionarHorario = (optSelecionado) => {
-        this.setState({ visibleHorarioEntrada: true });
-        this.setState({ itemClicado: optSelecionado });
+        this.setState({ visibleHorarioEntrada: true, itemClicado: optSelecionado });
     };
 
     cancelaHorario = () => {
-        this.setState({ visibleHorarioEntrada: false });
-        this.setState({ visibleHorarioSaida: false });
-        
-        this.setState({ dialogAdicionarExcecao: false });
-        this.setState({ dialogHorarioEntradaExcecao: false });
-        this.setState({ dialogHorarioSaidaExcecao: false });
+        this.setState({ visibleHorarioEntrada: false, visibleHorarioSaida: false });
+        this.setState({ dialogAdicionarExcecao: false, dialogHorarioEntradaExcecao: false, dialogHorarioSaidaExcecao: false });
     };
 
     confirmaHorario = (horario) => {
@@ -156,18 +150,7 @@ export default class CadastrarVisitante extends Component {
 
     }
 
-    onClickListener = (viewId) => {
-        Alert.alert("Alert", "Button pressed "+viewId);
-    }
-
-    setLayExcecao = () => {
-        this.setState({ isExcecao: true });
-    }
-
-    setLayEscala = () => {
-        this.setState({ isExcecao: false });
-    }
-
+    
    
     layoutEscala = () => {
         return (
@@ -176,26 +159,36 @@ export default class CadastrarVisitante extends Component {
                     {
                         this.state.dias.map((dia) => {
                             return (
-                                <TouchableWithoutFeedback onPress={() => this.showSelecionarHorario(dia.id)}>
+                                <TouchableWithoutFeedback onPress={dia.horaEntrada == 'Nenhum' ? () => this.showSelecionarHorario(dia.id) : () => this.removeEscala(dia.id)}>
                                     <View style={[styles.frequencia, styles.borderBottomGray]} >
                                         <Text style={styles.textDiaFrequencia}>{dia.dia}</Text>
                                         <Text style={styles.textHoraFrequencia}>{dia.horaEntrada == 'Nenhum' ? dia.horaEntrada : 'Das ' + dia.horaEntrada + ' às ' + dia.horaSaida}</Text>
                                         <View style={styles.setaFrequencia}>
-                                            <Image source={require('../images/icon-seta2.png')}/>
+                                            <Image source={dia.horaEntrada == 'Nenhum' ? require('../images/icon-seta2.png') : require('../images/icon-delete.png')}/>
                                         </View>
                                     </View>
                                 </TouchableWithoutFeedback>
                             )
                         })
                     }
-                    
+
+                    <TouchableHighlight style={styles.buttonResetEscala} onPress={() => this.setState({ dialogConfirmReset: true })}>
+                        <Text style={styles.resetEscalaText}>Limpar escala</Text>
+                    </TouchableHighlight>
                 </View>
 
-                <TouchableHighlight style={styles.buttonResetEscala} onPress={() => this.setState({ dialogConfirmReset: true })}>
-                    <Text style={styles.resetEscalaText}>Limpar escala</Text>
-                </TouchableHighlight>
+                
             </View> 
         )
+    }
+
+    removeEscala = (escalaId) => {
+        let tempArray = [...this.state.dias];
+        tempArray[escalaId].horaEntrada = 'Nenhum';
+        tempArray[escalaId].horaSaida = 'Nenhum';
+        this.setState({dias: tempArray});
+
+        this.setState({ dialogVisible: false });
     }
 
     confirmaData = (data) => {
@@ -229,6 +222,16 @@ export default class CadastrarVisitante extends Component {
         this.setState({ excecoes: novaArray, dialogConfirmaExcecao: false });
     }
 
+    removerExcecao = (excecao) => {
+        var tempExcecoes = [...this.state.excecoes];
+        var indexExcecao = tempExcecoes.indexOf(excecao);
+
+        if(indexExcecao != -1){
+            tempExcecoes.splice(indexExcecao, 1);
+            this.setState({ excecoes: tempExcecoes });
+        }
+    }
+
     layoutExcecao = () => {
         return (
             <View>
@@ -239,9 +242,11 @@ export default class CadastrarVisitante extends Component {
                                 <View style={[styles.frequencia, styles.borderBottomGray]} >
                                     <Text style={styles.textDiaFrequencia}>{excecao.data}</Text>
                                     <Text style={styles.textHoraFrequencia}>{excecao.horaEntrada == '' ? excecao.horaEntrada : 'Das ' + excecao.horaEntrada + ' às ' + excecao.horaSaida}</Text>
-                                    <View style={styles.setaFrequencia}>
-                                        <Image source={require('../images/icon-seta2.png')}/>
-                                    </View>
+                                    <TouchableWithoutFeedback onPress={() => this.removerExcecao(excecao)}>
+                                        <View style={styles.setaFrequencia}>
+                                            <Image source={require('../images/icon-delete2.png')}/>
+                                        </View>
+                                    </TouchableWithoutFeedback>
                                 </View>
                             )
                         })
@@ -251,7 +256,7 @@ export default class CadastrarVisitante extends Component {
                             <Text style={this.state.excecoes.length > 0 ? styles.textExcecao : [styles.textSemExcecao ]}> 
                             {
                                 this.state.excecoes.length > 0 ? 'Adicionar outra exceção' : 'Clique aqui para \n Adicionar uma exceção'
-                            } 
+                            }
                             </Text>
                         </View>
                     </TouchableWithoutFeedback>
@@ -283,7 +288,7 @@ export default class CadastrarVisitante extends Component {
 
                 <View>
                     <Dialog.Container visible={this.state.dialogConfirmaExcecao}>
-                        <Dialog.Title>Horário selecionado: {"\n"} Das {this.state.txtHoraEntrada} às {this.state.txtHoraSaida}</Dialog.Title>
+                        <Dialog.Title>Exceção selecionada:{"\n"} {this.state.txtDataExcecao} {"\n"} Das {this.state.txtHoraEntrada} às {this.state.txtHoraSaida}</Dialog.Title>
                         <Dialog.Description>Deseja aplicar esta exceção?</Dialog.Description>
 
                         <Dialog.Button label="Cancelar" onPress={() => this.setState({ dialogConfirmaExcecao: false })} />
@@ -294,24 +299,60 @@ export default class CadastrarVisitante extends Component {
         )
     }
 
+    finalizarCadastro = async () => {
+        if(this.state.nome_completo == '') this.setState({ preencherNome : true });
+        if(this.state.rg == '') this.setState({ preencherRg : true });
+
+        // try { 
+        //     await fetch(api + "/inserirVisitante.php", {
+        //         method: 'POST',
+        //         headers: {
+        //           Accept: 'application/json',
+        //           'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({
+        //           nome: this.state.nome_completo,
+        //           rg: this.state.rg,
+        //           placa: this.state.placa_veiculo,
+        //           lstExcecoes: this.state.excecoes,
+        //           lstEscala: this.state.dias
+        //         }),
+        //     })
+        //     .then((resultado) => resultado.json())
+        //     .then((resultadoJson) => {
+        //         console.log(resultadoJson);
+        //         Alert("Teste", "Cheguei Aqui");
+        //     }).catch((error) => {
+        //         console.log(error);
+        //     });
+
+        // } catch (error) {
+        //    alert("Erro de conexão","Verifique sua conexão com a internet e tente novamente!");
+        // }
+
+    }
+
     render(){
+
         return (
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
-                    <View style={styles.inputContainer}>
-                        <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/male-user/ultraviolet/50/3498db'}}/>
+                    <View style={!this.state.preencherNome ?  styles.inputContainer : styles.inputIncorrect}>
+                        <Image style={styles.inputIcon} source={!this.state.preencherNome ? require('../images/maleOk.png') : require('../images/maleError.png')}/>
                         <TextInput style={styles.inputs}
                             placeholder="Nome Completo"
                             underlineColorAndroid='transparent'
-                            onChangeText={(nome_completo) => this.setState({nome_completo})}/>
+                            onChangeText={(nome_completo) => this.setState({nome_completo})}
+                            onFocus={() => this.setState({ preencherNome: false })}/>
                     </View>
 
-                    <View style={styles.inputContainer}>
-                        <Image style={styles.inputIcon} source={require('../images/icon-rg.png')}/>
+                    <View style={!this.state.preencherRg ?  styles.inputContainer : styles.inputIncorrect}>
+                        <Image style={styles.inputIcon} source={!this.state.preencherRg ? require('../images/icon-rg.png') : require('../images/icon-rgError.png')}/>
                         <TextInput style={styles.inputs}
                             placeholder="RG"
                             underlineColorAndroid='transparent'
-                            onChangeText={(rg) => this.setState({rg})}/>
+                            onChangeText={(rg) => this.setState({rg})}
+                            onFocus={() => this.setState({ preencherRg: false })}/>
                     </View>
                     
                     <View style={styles.inputContainer}>
@@ -324,22 +365,23 @@ export default class CadastrarVisitante extends Component {
 
                     <Text style={styles.escalaText}>Selecione a frequência</Text>
 
-                    <View style={styles.viewSelectMethod}>
-                        <TouchableWithoutFeedback onPress={() => this.setLayExcecao()}>
-                            <View style={this.state.isExcecao ? styles.methodSelecionado : [styles.methodNaoSelecionado, styles.radiusLeft]} >
-                                <Text style={this.state.isExcecao ? styles.textoHabilitado : styles.textoNaoHabilitado}> Exceção </Text> 
-                            </View>
-                        </TouchableWithoutFeedback>
-                        
-                        <TouchableWithoutFeedback onPress={() => this.setLayEscala()}>
-                            <View style={!this.state.isExcecao ? styles.methodSelecionado : [styles.methodNaoSelecionado, styles.radiusRight]}>
-                                <Text style={!this.state.isExcecao ? styles.textoHabilitado : styles.textoNaoHabilitado}> Escala </Text> 
-                            </View>
-                        </TouchableWithoutFeedback>
-                    </View>
+                    <View>
+                        <View style={styles.viewSelectMethod}>
+                            <TouchableWithoutFeedback onPress={() => this.setState({ isExcecao: true })}>
+                                <View style={this.state.isExcecao ? styles.methodSelecionado : [styles.methodNaoSelecionado, styles.radiusLeft]} >
+                                    <Text style={this.state.isExcecao ? styles.textoHabilitado : styles.textoNaoHabilitado}> Exceção </Text> 
+                                </View>
+                            </TouchableWithoutFeedback>
+                            
+                            <TouchableWithoutFeedback onPress={() => this.setState({ isExcecao: false })}>
+                                <View style={!this.state.isExcecao ? styles.methodSelecionado : [styles.methodNaoSelecionado, styles.radiusRight]}>
+                                    <Text style={!this.state.isExcecao ? styles.textoHabilitado : styles.textoNaoHabilitado}> Escala </Text> 
+                                </View>
+                            </TouchableWithoutFeedback>
+                        </View>
 
-                    {!this.state.isExcecao ? this.layoutEscala()  : this.layoutExcecao()}
-                    
+                        {!this.state.isExcecao ? this.layoutEscala()  : this.layoutExcecao()}
+                    </View>
                         
                     <DateTimePicker
                         isVisible={this.state.visibleHorarioEntrada}
@@ -356,12 +398,6 @@ export default class CadastrarVisitante extends Component {
                         mode={'time'}
                         titleIOS={'Horário de Saída'}
                     />
-                    
-                    
-
-                    <TouchableHighlight style={[styles.buttonContainer, styles.signupButton]} onPress={() => this.onClickListener('sign_up')}>
-                        <Text style={styles.signUpText}>Cadastrar Visitante</Text>
-                    </TouchableHighlight>
 
                     <View>
                         <Dialog.Container visible={this.state.dialogVisible}>
@@ -383,6 +419,11 @@ export default class CadastrarVisitante extends Component {
                             <Dialog.Button label="Confirmar" onPress={this.resetHorarios} />
                         </Dialog.Container>
                     </View>
+
+                    <TouchableHighlight style={[styles.buttonContainer, styles.signupButton]} onPress={() => this.finalizarCadastro()}>
+                        <Text style={styles.signUpText}>Cadastrar Visitante</Text>
+                    </TouchableHighlight>
+
                 </View>
             </ScrollView>
         );
@@ -390,214 +431,7 @@ export default class CadastrarVisitante extends Component {
     
 }
 
-const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: '#06124e',
-        paddingBottom: 45,
-    },
-    container: {
-        flex: 1,
-        paddingTop: 45, 
-        paddingLeft:20,
-        paddingRight:20,
-        backgroundColor: '#06124e',
-    },
-    containerFrequencia: {
-        backgroundColor: "#fff",
-    },
-    
-    containerEscala: {
-        backgroundColor: "#fff",
-        height: 300,
-    },
 
-    inputContainer: {
-        borderColor: '#ccc',
-        backgroundColor: '#fff',
-        borderRadius:30,
-        borderWidth: 1,
-        width:"100%",
-        height:45,
-        marginBottom:20,
-        flexDirection: 'row',
-        alignItems:'center'
-    },
-    inputs:{
-        height:45,
-        marginLeft:16,
-        borderBottomColor: '#FFFFFF',
-        flex:1,
-    },
-    inputIcon:{
-        width:30,
-        height:30,
-        marginLeft:15,
-        justifyContent: 'center'
-    },
-    buttonContainer: {
-        width:"80%",
-        height:45,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop:20,
-        marginBottom:20,
-        borderRadius:1,
-        marginLeft:"10%",
-        borderWidth: 1,
-        borderColor: "#06124e"
-    
-    },
-    signupButton: {
-        backgroundColor: "#fff",
-    },
-    signUpText: {
-        color: '#06124e',
-        fontSize:18,
-        fontWeight:'bold'
-    },
-    escalaText:{
-        color:"#fff",
-        fontSize:20,
-        fontWeight:'bold',
-        marginLeft:"19%",
-        marginBottom:25
-    },
-    frequencia: {
-        flexDirection: 'row',
-        paddingTop: 15,
-        paddingLeft: 15,
-        paddingBottom: 10,
-        width: '100%',
-        
-    },
-
-    borderBottomGray: {
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-    },
-
-    textDiaFrequencia:{
-        color: '#737373',
-        flex: .35,
-        flexDirection: 'row',
-        textAlign: 'left',
-        justifyContent: 'flex-start',
-    },
-    textHoraFrequencia: {
-        color: '#737373',
-        flex: .45,
-        flexDirection: 'row',
-        textAlign: 'right',
-        justifyContent: 'flex-end'
-    },
-    setaFrequencia: {
-        flex: .2,
-        flexDirection: 'row',
-        textAlign: 'right',
-        justifyContent: 'flex-end',
-        marginRight: 15
-    },
-
-    textExcecao:{
-        color: '#737373',
-        flex: 1,
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-    },
-
-    textSemExcecao: {
-        color: '#737373',
-        flex: 1,
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        borderBottomWidth: 0,
-        borderBottomColor: 'transparent',
-        fontSize: 24,
-        marginTop: 100
-    },
-    
-    buttonResetEscala: {
-        flex: 1,
-        padding: 10,
-        marginTop: 10,
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-        borderRadius: 5,
-    },
-    resetEscalaText: {
-        color: '#ff1a1a',
-        fontSize:18
-    },
-
-    viewSelectMethod: {
-        flex: 1,
-        flexDirection: 'row',
-        textAlign: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'transparent',
-        height: 40,
-    },
-
-    methodSelecionado: {
-        height: 40,
-        flex: .50,
-        paddingTop: 10,
-        paddingBottom: 10,
-        backgroundColor: '#fff',
-        borderTopRightRadius: 5,
-        borderTopLeftRadius: 5,
-        
-    },
-
-    methodNaoSelecionado: {
-        marginTop: 3,
-        height: 33,
-        flex: .50,
-        backgroundColor: '#bfbfbf',
-        paddingTop: 7,
-        paddingBottom: 10,
-        
-    },
-
-    textoHabilitado: {
-        textAlign: 'center',
-        color: '#262626',
-        fontSize: 18,
-    },
-
-    textoNaoHabilitado: {
-        textAlign: 'center',
-        color: '#737373',
-        fontSize: 16,
-    },
-
-    radiusRight: {
-        borderBottomRightRadius: 5,
-        borderTopRightRadius: 5,
-    },
-
-    radiusLeft: {
-        borderBottomLeftRadius: 5,
-        borderTopLeftRadius: 5,
-    },
-
-    radiusWithoutTopLeft: {
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        borderTopRightRadius: 5
-    },
-
-    radiusWithoutTopRight: {
-        borderBottomLeftRadius: 5,
-        borderBottomRightRadius: 5,
-        borderTopLeftRadius: 5
-    }
-});
 
 CadastrarVisitante.navigationOptions = (props) => ({
     title: 'Cadastrar Visitante',

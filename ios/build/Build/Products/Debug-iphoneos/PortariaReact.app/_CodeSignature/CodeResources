@@ -187,7 +187,7 @@
 		</data>
 		<key>PlugIns/PortariaReactTests.xctest/PortariaReactTests</key>
 		<data>
-		35hRUETtxz/xhie8i72t7b7LumA=
+		AIrgj0whX8lL75GUCFYiNv48drk=
 		</data>
 		<key>PlugIns/PortariaReactTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
@@ -225,6 +225,14 @@
 		<data>
 		2xik69/EJq2Z8Mo9EjDIlaJQv8g=
 		</data>
+		<key>assets/src/images/icon-delete.png</key>
+		<data>
+		wJVSUx443UIuJNSeDtlW5N1JU6w=
+		</data>
+		<key>assets/src/images/icon-delete2.png</key>
+		<data>
+		igFJDW8mLoJQBYtMo1/p+BbPUNQ=
+		</data>
 		<key>assets/src/images/icon-placa.png</key>
 		<data>
 		ypyPNov2SKpF9nR97jS4keqhwgc=
@@ -233,6 +241,10 @@
 		<data>
 		7wZEHUuIXrhmIziRaEWSQuYqhNo=
 		</data>
+		<key>assets/src/images/icon-rgError.png</key>
+		<data>
+		J47+E5qD+eBgIOqUuXZKFcJM/Fw=
+		</data>
 		<key>assets/src/images/icon-seta2.png</key>
 		<data>
 		pt349VOUOG6ZyGdsW8tHgyq4pn0=
@@ -240,6 +252,14 @@
 		<key>assets/src/images/logo_login.png</key>
 		<data>
 		wFzqdsxq3wzslJLTQCFbEQ/WdGE=
+		</data>
+		<key>assets/src/images/maleError.png</key>
+		<data>
+		l6KwIOvAjKUhMNAoFNKrzbZuRkk=
+		</data>
+		<key>assets/src/images/maleOk.png</key>
+		<data>
+		v6O5LpXC1vCPXtKm/2h/AasqQaE=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -251,7 +271,7 @@
 		</data>
 		<key>main.jsbundle</key>
 		<data>
-		XNU3yhH+Rvo/iFRGbnkx9hxJGV4=
+		SpvqICR/JMe93HrCweWn2GuvU58=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -724,11 +744,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			35hRUETtxz/xhie8i72t7b7LumA=
+			AIrgj0whX8lL75GUCFYiNv48drk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nr/cbXhQ9KB1SowU3Avh81qlCQNDK4UI1jXBjB09d5U=
+			6UzmwmWM3Bjy07N5nInMj6qn7VCi+kZ66H2fyhZ3nGg=
 			</data>
 		</dict>
 		<key>PlugIns/PortariaReactTests.xctest/_CodeSignature/CodeResources</key>
@@ -830,6 +850,28 @@
 			hE27uw+Pj872AYDiaCLhaHag0LxNwYq0qPH1VRx4Njw=
 			</data>
 		</dict>
+		<key>assets/src/images/icon-delete.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wJVSUx443UIuJNSeDtlW5N1JU6w=
+			</data>
+			<key>hash2</key>
+			<data>
+			GzEji9HOHpatxvVf4P2JhIv1qVich2dndUMtEpY1Mok=
+			</data>
+		</dict>
+		<key>assets/src/images/icon-delete2.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			igFJDW8mLoJQBYtMo1/p+BbPUNQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			y4apeNMPPpoYSFp8YfMcf7xEbOtCtvqzJvwttn6VMXk=
+			</data>
+		</dict>
 		<key>assets/src/images/icon-placa.png</key>
 		<dict>
 			<key>hash</key>
@@ -852,6 +894,17 @@
 			VCV0i0l9Gbsq1OcH57gbTe3/ltkqa+zuCPY6GDnw0Rg=
 			</data>
 		</dict>
+		<key>assets/src/images/icon-rgError.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J47+E5qD+eBgIOqUuXZKFcJM/Fw=
+			</data>
+			<key>hash2</key>
+			<data>
+			9VWIvBpdiqA/A3B08+F3SuhQSfnnnv42GXmNTeT6cEc=
+			</data>
+		</dict>
 		<key>assets/src/images/icon-seta2.png</key>
 		<dict>
 			<key>hash</key>
@@ -872,6 +925,28 @@
 			<key>hash2</key>
 			<data>
 			/FEooRraopvg6JuAOWybvhrG+/fVswxx+U2SBOC5dus=
+			</data>
+		</dict>
+		<key>assets/src/images/maleError.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			l6KwIOvAjKUhMNAoFNKrzbZuRkk=
+			</data>
+			<key>hash2</key>
+			<data>
+			XFyOV9CQETqm+QK6dVQdBXpMJiPhDT4h2T9kjGosnvU=
+			</data>
+		</dict>
+		<key>assets/src/images/maleOk.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			v6O5LpXC1vCPXtKm/2h/AasqQaE=
+			</data>
+			<key>hash2</key>
+			<data>
+			ujR84+FEM2+Th23+yCZFaOfcYQ2zwsSWKxx5lLZeddY=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
@@ -900,11 +975,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XNU3yhH+Rvo/iFRGbnkx9hxJGV4=
+			SpvqICR/JMe93HrCweWn2GuvU58=
 			</data>
 			<key>hash2</key>
 			<data>
-			Yv2HHt/9RRqaN8b0CzOOFgumZHus5rV9mo5OEEYlEhc=
+			ZWa+ndA0fztt+/Oj+k+ajC6TjAcUWhpS267W/YCEKyQ=
 			</data>
 		</dict>
 	</dict>

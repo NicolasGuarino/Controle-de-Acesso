@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>A68C8366-951D-49EE-9B05-8DF06B7E237C</key>
+		<key>60491D53-B1B6-47C5-B2A5-2D87EDD3EA17</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>A68C8366-951D-49EE-9B05-8DF06B7E237C.xcactivitylog</string>
+			<string>60491D53-B1B6-47C5-B2A5-2D87EDD3EA17.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>572957751.261621</real>
+			<real>573480987.29589701</real>
 			<key>timeStoppedRecording</key>
-			<real>572958094.05032694</real>
+			<real>573481033.14923501</real>
 			<key>title</key>
 			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>A68C8366-951D-49EE-9B05-8DF06B7E237C</string>
+			<string>60491D53-B1B6-47C5-B2A5-2D87EDD3EA17</string>
 		</dict>
-		<key>FB6ABC6E-7402-44CB-B70F-8B1E61C11390</key>
+		<key>A156EFFA-7210-4458-8AB2-82F5C14E8132</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,7 +44,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>FB6ABC6E-7402-44CB-B70F-8B1E61C11390.xcactivitylog</string>
+			<string>A156EFFA-7210-4458-8AB2-82F5C14E8132.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>572986759.28187203</real>
+			<real>573488606.32813895</real>
 			<key>timeStoppedRecording</key>
-			<real>572986810.02857995</real>
+			<real>573488722.27504897</real>
 			<key>title</key>
 			<string>Building workspace PortariaReact with scheme PortariaReact and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>FB6ABC6E-7402-44CB-B70F-8B1E61C11390</string>
+			<string>A156EFFA-7210-4458-8AB2-82F5C14E8132</string>
 		</dict>
 	</dict>
 </dict>
